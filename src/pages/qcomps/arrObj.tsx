@@ -14,9 +14,9 @@ const initialList = [
  * Decouple the lists, that is, checking a box in one list should have no impact on the other list?
  */
 export default function BucketList() {
-  const [myList, setMyList] = useState([...initialList]);
+  const [myList, setMyList] = useState(initialList);
   const [yourList, setYourList] = useState(
-    [...initialList]
+    initialList
   );
 
   /**
