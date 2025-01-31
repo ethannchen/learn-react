@@ -14,9 +14,9 @@ const initialList = [
  * Decouple the lists, that is, checking a box in one list should have no impact on the other list?
  */
 export default function BucketList() {
-  const [myList, setMyList] = useState(initialList);
+  const [myList, setMyList] = useState([...initialList]);
   const [yourList, setYourList] = useState(
-    initialList
+    [...initialList]
   );
 
   /**
@@ -26,10 +26,7 @@ export default function BucketList() {
    */
   function handleToggleMyList(artworkId: number, nextSeen: boolean) {
     const tmpList = myList.map(e => {
-        if (e.id === artworkId) {
-            e.seen = nextSeen
-        }
-        return e
+      return { ...e, seen: e.id === artworkId ? nextSeen : e.seen }
     });
     setMyList(tmpList);
   }
@@ -41,10 +38,7 @@ export default function BucketList() {
    */
   function handleToggleYourList(artworkId: number, nextSeen: boolean) {
     const tmpList = yourList.map(e => {
-        if (e.id === artworkId) {
-            e.seen = nextSeen
-        }
-        return e
+      return { ...e, seen: e.id === artworkId ? nextSeen : e.seen }
     });
     setYourList(tmpList);
   }

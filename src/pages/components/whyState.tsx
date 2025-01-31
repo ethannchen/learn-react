@@ -10,7 +10,7 @@ export default function Gallery() {
   let index = 0;
 
   function handleClick() {
-    index = index + 1;
+    index = index + 1; //didn't trigger rerender of component
   }
 
   let sculpture = sculptureList[index];

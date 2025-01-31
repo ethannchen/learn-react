@@ -14,7 +14,7 @@ export default function Counter() {
     <>
       <h1>{number}</h1>
       <button onClick={() => {
-        setNumber(number + 1);
+        setNumber(number + 1);//each call uses the same initial value of number from the current render
         setNumber(number + 1);
         setNumber(number + 1);
       }}>+3</button>
